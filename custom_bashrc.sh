@@ -121,7 +121,7 @@ ogui() {
 dnd() {
    if [[ "$1" == "" ]]
    then
-       echo "dnd: error : please specify a time peroid such as '15m' or '1h'"
+       echo "dnd: error : please specify a time period such as '15m' or '1h'"
        return
    fi
    echo "dnd: Enabling Do Not Disturb Mode..."
