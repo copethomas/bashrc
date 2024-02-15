@@ -33,7 +33,7 @@ alias free='free -m'
 alias gs='git status'
 
 # SSH Agent Stuff
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+#export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 #export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 
 #Path Changes
@@ -41,6 +41,12 @@ PATH=$PATH:/home/$USER/go/bin/:/home/$USER/bin/:/home/$USER/.local/bin
 export PATH
 
 #Custom Functions
+
+loadkeys() {
+   ssh-add -D
+   ssh-add -t 24h ~/.ssh/*.key
+   ssh-add -l 
+}
 
 sshtunnel() {
         if [[ $1 == "-L" ]]
