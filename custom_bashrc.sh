@@ -12,7 +12,7 @@ export HISTSIZE= #Give me infinite command history!
 export HISTFILESIZE=
 unset HISTCONTROL 
 export IGNOREEOF=10  #Stops me from Pressing Control-D to exit.
-#Flushes history
+#Flushes history immediately
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
@@ -21,6 +21,7 @@ alias ll='ls -l'
 alias vi='/usr/bin/vim'
 alias gpg='gpg2 --require-secmem --no-greeting --openpgp --armor'
 alias brc="$EDITOR /home/$USER/bin/custom_bashrc"
+alias brcreload="source /home/$USER/bin/custom_bashrc.sh"
 alias more=less
 
 alias cp="cp -i"
@@ -143,4 +144,15 @@ dnd() {
 #Silly notification for long running commands
 bonk() {
    notify-send -u critical "Bonk!" "Command Finished"
+}
+
+#--- K8 Helpers ---
+
+alias k='kubectl'
+alias kg='kubectl get'
+alias kpods='kubectl get pods'
+alias ksecret='kubectl get secrets'
+
+kexec() {
+        kubectl exec -it $1 -- sh
 }
